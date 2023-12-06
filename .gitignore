@@ -1,0 +1,33 @@
+HELP.md
+target/
+!.mvn/wrapper/maven-wrapper.jar
+!mall-tiny-jpa-common/src/main/**/target/
+!mall-tiny-jpa-common/src/test/**/target/
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+build/
+!mall-tiny-jpa-common/src/main/**/build/
+!mall-tiny-jpa-common/src/test/**/build/
+
+### VS Code ###
+.vscode/
