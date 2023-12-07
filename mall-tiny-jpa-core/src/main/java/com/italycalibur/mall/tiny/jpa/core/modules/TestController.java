@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @since 2023/12/6
  */
 @RestController
-@Tag(name = "TestController", description = "测试接口")
+@Tag(name = "测试接口")
 @RequestMapping("/test")
 public class TestController {
 
@@ -24,4 +24,5 @@ public class TestController {
     public String sayHello(@RequestParam String text) {
         return text;
     }
+
 }

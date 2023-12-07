@@ -4,6 +4,8 @@ import lombok.Getter;
 
 /**
  * 常用API操作码枚举类
+ * @author italycalibur
+ * @since 2023/12/7
  */
 @Getter
 public enum ResultCode implements IErrorCode {
@@ -13,6 +15,7 @@ public enum ResultCode implements IErrorCode {
     VALIDATE_FAILED(404, "参数检验失败"),
     UNAUTHORIZED(401, "暂未登录或token已经过期"),
     FORBIDDEN(403, "没有相关权限");
+
     /**
      * 响应代码.
      */

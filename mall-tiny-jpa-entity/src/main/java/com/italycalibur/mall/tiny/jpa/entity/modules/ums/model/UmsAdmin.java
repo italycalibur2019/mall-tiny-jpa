@@ -8,6 +8,11 @@ import lombok.Getter;
 import lombok.Setter;
 import com.italycalibur.mall.tiny.jpa.entity.domain.AbstractBaseEntity;
 
+/**
+ * 后台用户实体
+ * @author italycalibur
+ * @since 2023/12/7
+ */
 @Getter
 @Setter
 @Entity

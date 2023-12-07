@@ -4,6 +4,8 @@ import lombok.Data;
 
 /**
  * 通用返回对象
+ * @author italycalibur
+ * @since 2023/12/7
  */
 @Data
 public class CommonResult<T> {

@@ -3,8 +3,13 @@ package com.italycalibur.mall.tiny.jpa.core.modules.ums.dto;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 
+/**
+ * 后台用户注册信息参数
+ * @author italycalibur
+ * @since 2023/12/7
+ */
 @Data
-@Schema(name = "后台用户注册信息")
+@Schema(description = "后台用户注册信息")
 public class UmsAdminRegisterParams {
 
     @Schema(name = "username", description = "用户名")

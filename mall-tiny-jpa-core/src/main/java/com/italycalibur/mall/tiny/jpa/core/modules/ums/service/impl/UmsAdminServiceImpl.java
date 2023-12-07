@@ -1,5 +1,6 @@
 package com.italycalibur.mall.tiny.jpa.core.modules.ums.service.impl;
 
+import com.italycalibur.mall.tiny.jpa.common.exception.Asserts;
 import com.italycalibur.mall.tiny.jpa.core.modules.ums.dto.UmsAdminLoginParams;
 import com.italycalibur.mall.tiny.jpa.core.modules.ums.dto.UmsAdminRegisterParams;
 import com.italycalibur.mall.tiny.jpa.core.modules.ums.service.UmsAdminService;
@@ -10,6 +11,11 @@ import org.springframework.stereotype.Service;
 
 import java.util.Date;
 
+/**
+ * 后台用户服务实现层
+ * @author italycalibur
+ * @since 2023/12/7
+ */
 @Service
 public class UmsAdminServiceImpl implements UmsAdminService {
 
@@ -17,18 +23,25 @@ public class UmsAdminServiceImpl implements UmsAdminService {
     private UmsAdminRepository adminRepository;
 
     @Override
-    public boolean login(UmsAdminLoginParams params) {
+    public String login(UmsAdminLoginParams params) {
         UmsAdmin admin = adminRepository.findOneByUsername(params.getUsername());
         if (admin == null) {
-            return false;
+            Asserts.fail("您输入的用户名【" + params.getUsername() + "】不存在，请先注册！");
         }
-        return params.getPassword().equals(admin.getPassword());
+        if(!params.getPassword().equals(admin.getPassword())) {
+            Asserts.fail("您输入的密码不正确，请重新输入！");
+        }
+        return "登录成功！";
     }
 
     @Override
-    public boolean register(UmsAdminRegisterParams params) {
+    public String register(UmsAdminRegisterParams params) {
+        UmsAdmin umsAdmin = adminRepository.findOneByUsername(params.getUsername());
+        if (umsAdmin != null) {
+            Asserts.fail("用户名【" + params.getUsername() + "】已存在，请重新输入！");
+        }
         if (!params.getConfirmPassword().equals(params.getPassword())) {
-            return false;
+            Asserts.fail("两次输入的密码不一致！");
         }
         UmsAdmin admin = new UmsAdmin();
         admin.setUsername(params.getUsername());
@@ -36,6 +49,7 @@ public class UmsAdminServiceImpl implements UmsAdminService {
         admin.setCreateTime(new Date());
         admin.setCreateBy(-1L);
         adminRepository.save(admin);
-        return true;
+        return "注册成功！";
     }
+
 }
