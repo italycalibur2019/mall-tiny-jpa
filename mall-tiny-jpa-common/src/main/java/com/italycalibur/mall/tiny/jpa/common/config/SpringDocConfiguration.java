@@ -1,4 +1,4 @@
-package com.italycalibur.mall.tiny.jpa.common;
+package com.italycalibur.mall.tiny.jpa.common.config;
 
 import io.swagger.v3.oas.models.ExternalDocumentation;
 import io.swagger.v3.oas.models.OpenAPI;

@@ -1,6 +1,17 @@
 server:
   port: 8088
 
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/postgres
+    username: postgres
+    password: cargo123
+
 # springdoc-openapi项目配置
 springdoc:
   swagger-ui:
