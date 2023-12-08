@@ -29,7 +29,7 @@ public abstract class AbstractBaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "snowflakeGenerator")
     @GenericGenerator(name = "snowflakeGenerator", type = SnowflakeGenerator.class)
-    @Schema(name = "主键id")
+    @Schema(name = "id", description = "主键id")
     private Long id;
 
     /**
@@ -37,7 +37,7 @@ public abstract class AbstractBaseEntity {
      */
     @CreatedDate
     @Column(name = "create_time", nullable = false, updatable = false)
-    @Schema(name = "创建时间")
+    @Schema(name = "createTime", description = "创建时间")
     private Date createTime;
 
     /**
@@ -45,7 +45,7 @@ public abstract class AbstractBaseEntity {
      */
     @CreatedBy
     @Column(name = "create_by", nullable = false, updatable = false)
-    @Schema(name = "创建人")
+    @Schema(name = "createBy", description = "创建人")
     private Long createBy;
 
     /**
@@ -53,7 +53,7 @@ public abstract class AbstractBaseEntity {
      */
     @LastModifiedDate
     @Column(name = "update_time")
-    @Schema(name = "修改时间")
+    @Schema(name = "updateTime", description = "修改时间")
     private Date updateTime;
 
     /**
@@ -61,7 +61,7 @@ public abstract class AbstractBaseEntity {
      */
     @LastModifiedBy
     @Column(name = "update_by")
-    @Schema(name = "修改人")
+    @Schema(name = "updateBy", description = "修改人")
     private Long updateBy;
 
 }

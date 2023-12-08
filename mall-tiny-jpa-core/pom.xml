@@ -13,11 +13,13 @@
     <description>Demo project for Spring Boot</description>
     <packaging>jar</packaging>
     <dependencies>
+        <!--项目通用依赖-->
         <dependency>
             <groupId>com.italycalibur</groupId>
             <artifactId>mall-tiny-jpa-common</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
+        <!--项目实体依赖-->
         <dependency>
             <groupId>org.italycalibur</groupId>
             <artifactId>mall-tiny-jpa-entity</artifactId>

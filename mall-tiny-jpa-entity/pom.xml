@@ -18,15 +18,11 @@
         <postgresql.version>42.7.0</postgresql.version>
     </properties>
     <dependencies>
+        <!--项目通用依赖-->
         <dependency>
             <groupId>com.italycalibur</groupId>
             <artifactId>mall-tiny-jpa-common</artifactId>
             <version>0.0.1-SNAPSHOT</version>
-        </dependency>
-        <!--jpa起始依赖-->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-data-jpa</artifactId>
         </dependency>
         <!--postgresql数据库驱动-->
         <dependency>

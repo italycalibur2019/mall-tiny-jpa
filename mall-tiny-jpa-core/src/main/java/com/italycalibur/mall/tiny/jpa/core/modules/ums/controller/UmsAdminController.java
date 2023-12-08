@@ -2,6 +2,9 @@ package com.italycalibur.mall.tiny.jpa.core.modules.ums.controller;
 
 import com.github.xiaoymin.knife4j.annotations.ApiOperationSupport;
 import com.italycalibur.mall.tiny.jpa.common.api.CommonResult;
+import com.italycalibur.mall.tiny.jpa.common.api.PageData;
+import com.italycalibur.mall.tiny.jpa.common.api.PageQueryParam;
+import com.italycalibur.mall.tiny.jpa.common.utils.PageUtil;
 import com.italycalibur.mall.tiny.jpa.common.exception.ApiException;
 import com.italycalibur.mall.tiny.jpa.core.modules.ums.dto.UmsAdminLoginParams;
 import com.italycalibur.mall.tiny.jpa.core.modules.ums.dto.UmsAdminRegisterParams;
@@ -11,7 +14,6 @@ import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.annotation.Resource;
 import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -55,8 +57,9 @@ public class UmsAdminController {
     @Operation(summary = "查询用户")
     @ApiOperationSupport(order = 3)
     @RequestMapping(value = "/list", method = RequestMethod.POST)
-    public Page<UmsAdmin> list(String keyWord, Integer pageNum, Integer pageSize) {
-        PageRequest request = PageRequest.of(pageNum, pageSize);
-        return adminService.list(keyWord, request);
+    public PageData<UmsAdmin> list(@RequestBody PageQueryParam<String> queryParam) {
+        String keyWord = queryParam.getParams();
+        Page<UmsAdmin> page = adminService.list(keyWord, queryParam.pageable());
+        return PageUtil.build(page);
     }
 }
