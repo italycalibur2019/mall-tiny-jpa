@@ -1,0 +1,14 @@
+spring:
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://db:5432/mall
+    username: postgres
+    password: 123456
+
+# 正式环境(Linux)日志路径和日志等级
+logging:
+  file:
+    path: /var/logs
+  level:
+    root: info
+    com.italycalibur.mall: info

@@ -7,6 +7,8 @@ import com.italycalibur.mall.tiny.jpa.core.modules.ums.service.UmsAdminService;
 import jakarta.annotation.Resource;
 import com.italycalibur.mall.tiny.jpa.entity.modules.ums.model.UmsAdmin;
 import com.italycalibur.mall.tiny.jpa.entity.modules.ums.repository.UmsAdminRepository;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
@@ -50,6 +52,12 @@ public class UmsAdminServiceImpl implements UmsAdminService {
         admin.setCreateBy(-1L);
         adminRepository.save(admin);
         return "注册成功！";
+    }
+
+    @Override
+    public Page<UmsAdmin> list(String keyword, Pageable pageable) {
+        return adminRepository.findAllByUsernameLikeOrNickNameLike
+                ("%"+keyword+"%", "%"+keyword+"%", pageable);
     }
 
 }

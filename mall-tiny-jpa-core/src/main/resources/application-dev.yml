@@ -1,0 +1,16 @@
+spring:
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/postgres
+    username: postgres
+    password: cargo123
+  # 开启devtools热部署（因为使用 JRebel插件会导致Knife4j部分注解无效）
+  devtools:
+    restart:
+      enabled: true
+
+# 开发环境(Windows)日志等级
+logging:
+  level:
+    root: info
+    com.italycalibur.mall: debug

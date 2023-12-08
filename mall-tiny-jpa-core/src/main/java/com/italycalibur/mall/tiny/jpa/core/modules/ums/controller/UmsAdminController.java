@@ -6,9 +6,12 @@ import com.italycalibur.mall.tiny.jpa.common.exception.ApiException;
 import com.italycalibur.mall.tiny.jpa.core.modules.ums.dto.UmsAdminLoginParams;
 import com.italycalibur.mall.tiny.jpa.core.modules.ums.dto.UmsAdminRegisterParams;
 import com.italycalibur.mall.tiny.jpa.core.modules.ums.service.UmsAdminService;
+import com.italycalibur.mall.tiny.jpa.entity.modules.ums.model.UmsAdmin;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.annotation.Resource;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -47,5 +50,13 @@ public class UmsAdminController {
         } catch (ApiException e) {
             return CommonResult.failed("注册失败，原因：" + e.getMessage());
         }
+    }
+
+    @Operation(summary = "查询用户")
+    @ApiOperationSupport(order = 3)
+    @RequestMapping(value = "/list", method = RequestMethod.POST)
+    public Page<UmsAdmin> list(String keyWord, Integer pageNum, Integer pageSize) {
+        PageRequest request = PageRequest.of(pageNum, pageSize);
+        return adminService.list(keyWord, request);
     }
 }

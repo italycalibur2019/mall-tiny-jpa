@@ -2,6 +2,9 @@ package com.italycalibur.mall.tiny.jpa.core.modules.ums.service;
 
 import com.italycalibur.mall.tiny.jpa.core.modules.ums.dto.UmsAdminLoginParams;
 import com.italycalibur.mall.tiny.jpa.core.modules.ums.dto.UmsAdminRegisterParams;
+import com.italycalibur.mall.tiny.jpa.entity.modules.ums.model.UmsAdmin;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 
 /**
  * 后台用户服务层
@@ -20,4 +23,8 @@ public interface UmsAdminService {
      */
     String register(UmsAdminRegisterParams params);
 
+    /**
+     * 根据用户名或昵称分页查询后台用户
+     */
+    Page<UmsAdmin> list(String keyword, Pageable pageable);
 }

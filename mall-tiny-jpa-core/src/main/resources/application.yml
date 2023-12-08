@@ -1,16 +1,18 @@
 server:
   port: 8088
 
+
 spring:
+  # spring开发环境配置
+  application:
+    name: mall-tiny-jpa
+  profiles:
+    active: dev
+  # jpa基本配置
   jpa:
     hibernate:
       ddl-auto: update
     show-sql: true
-  datasource:
-    driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://localhost:5432/postgres
-    username: postgres
-    password: cargo123
 
 # springdoc-openapi项目配置
 springdoc:

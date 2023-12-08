@@ -1,0 +1,5 @@
+INSERT INTO public.ums_admin (id, create_by, create_time, update_by, update_time, "password", username, nick_name) VALUES(1732936666756186112, -1, '2023-12-08 09:34:32.408', NULL, NULL, '123456', 'test', '测试用户');
+INSERT INTO public.ums_admin (id, create_by, create_time, update_by, update_time, "password", username, nick_name) VALUES(1732936708447567872, -1, '2023-12-08 09:34:42.358', NULL, NULL, '123456', 'admin', '测试管理员');
+INSERT INTO public.ums_admin (id, create_by, create_time, update_by, update_time, "password", username, nick_name) VALUES(1732936733420453888, -1, '2023-12-08 09:34:48.311', NULL, NULL, '123456', 'user', '普通用户');
+INSERT INTO public.ums_admin (id, create_by, create_time, update_by, update_time, "password", username, nick_name) VALUES(1732936758313648128, -1, '2023-12-08 09:34:54.247', NULL, NULL, '123456', 'kirito', '桐人');
+INSERT INTO public.ums_admin (id, create_by, create_time, update_by, update_time, "password", username, nick_name) VALUES(1732936789015953408, -1, '2023-12-08 09:35:01.567', NULL, NULL, '123456', 'asuna', '亚丝娜');
