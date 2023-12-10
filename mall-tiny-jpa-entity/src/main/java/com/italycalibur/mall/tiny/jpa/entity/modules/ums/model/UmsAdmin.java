@@ -40,4 +40,33 @@ public class UmsAdmin extends AbstractBaseEntity {
     @Column(name = "nick_name")
     @Schema(name = "nickName", description = "昵称")
     private String nickName;
+
+    /**
+     * 头像.
+     */
+    @Column(name = "icon")
+    @Schema(name = "icon", description = "头像")
+    private String icon;
+
+    /**
+     * 邮箱.
+     */
+    @Column(name = "email")
+    @Schema(name = "email", description = "邮箱")
+    private String email;
+
+    /**
+     * 账号启用状态：0->禁用；1->启用.
+     */
+    @Column(name = "status")
+    @Schema(name = "status", description = "账号启用状态：0->禁用；1->启用")
+    private Integer status;
+
+    /**
+     * 备注信息.
+     */
+    @Column(name = "remark")
+    @Schema(name = "remark", description = "备注信息")
+    private String remark;
+
 }

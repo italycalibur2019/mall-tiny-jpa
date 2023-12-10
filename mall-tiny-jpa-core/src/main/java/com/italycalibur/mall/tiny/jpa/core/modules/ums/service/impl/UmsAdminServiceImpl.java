@@ -7,6 +7,7 @@ import com.italycalibur.mall.tiny.jpa.core.modules.ums.service.UmsAdminService;
 import jakarta.annotation.Resource;
 import com.italycalibur.mall.tiny.jpa.entity.modules.ums.model.UmsAdmin;
 import com.italycalibur.mall.tiny.jpa.entity.modules.ums.repository.UmsAdminRepository;
+import org.springframework.beans.BeanUtils;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
@@ -46,10 +47,10 @@ public class UmsAdminServiceImpl implements UmsAdminService {
             Asserts.fail("两次输入的密码不一致！");
         }
         UmsAdmin admin = new UmsAdmin();
-        admin.setUsername(params.getUsername());
-        admin.setPassword(params.getPassword());
+        BeanUtils.copyProperties(params, admin);
         admin.setCreateTime(new Date());
         admin.setCreateBy(-1L);
+        admin.setStatus(1);
         adminRepository.save(admin);
         return "注册成功！";
     }

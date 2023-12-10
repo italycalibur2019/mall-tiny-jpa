@@ -21,7 +21,7 @@
         </dependency>
         <!--项目实体依赖-->
         <dependency>
-            <groupId>org.italycalibur</groupId>
+            <groupId>com.italycalibur</groupId>
             <artifactId>mall-tiny-jpa-entity</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>

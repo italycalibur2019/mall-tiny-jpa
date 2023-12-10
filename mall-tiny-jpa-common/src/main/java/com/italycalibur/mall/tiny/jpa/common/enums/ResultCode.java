@@ -1,5 +1,6 @@
-package com.italycalibur.mall.tiny.jpa.common.api;
+package com.italycalibur.mall.tiny.jpa.common.enums;
 
+import com.italycalibur.mall.tiny.jpa.common.api.IErrorCode;
 import lombok.Getter;
 
 /**

@@ -7,7 +7,6 @@
         <artifactId>mall-tiny-jpa</artifactId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
-    <groupId>org.italycalibur</groupId>
     <artifactId>mall-tiny-jpa-entity</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>mall-tiny-jpa-entity</name>

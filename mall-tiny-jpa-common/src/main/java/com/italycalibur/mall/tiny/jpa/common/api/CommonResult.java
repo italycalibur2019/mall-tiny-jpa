@@ -1,5 +1,6 @@
 package com.italycalibur.mall.tiny.jpa.common.api;
 
+import com.italycalibur.mall.tiny.jpa.common.enums.ResultCode;
 import lombok.Data;
 
 /**
