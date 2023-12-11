@@ -1,6 +1,7 @@
 package com.italycalibur.mall.tiny.jpa.core.modules.ums.service.impl;
 
 import com.italycalibur.mall.tiny.jpa.common.exception.Asserts;
+import com.italycalibur.mall.tiny.jpa.core.domain.BaseServiceImpl;
 import com.italycalibur.mall.tiny.jpa.core.modules.ums.dto.UmsAdminLoginParams;
 import com.italycalibur.mall.tiny.jpa.core.modules.ums.dto.UmsAdminRegisterParams;
 import com.italycalibur.mall.tiny.jpa.core.modules.ums.service.UmsAdminService;
@@ -20,7 +21,7 @@ import java.util.Date;
  * @since 2023/12/7
  */
 @Service
-public class UmsAdminServiceImpl implements UmsAdminService {
+public class UmsAdminServiceImpl extends BaseServiceImpl implements UmsAdminService {
 
     @Resource
     private UmsAdminRepository adminRepository;
