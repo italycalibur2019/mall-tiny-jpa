@@ -4,7 +4,11 @@ import com.italycalibur.mall.tiny.jpa.common.exception.Asserts;
 import com.italycalibur.mall.tiny.jpa.core.domain.BaseServiceImpl;
 import com.italycalibur.mall.tiny.jpa.core.modules.ums.dto.UmsAdminLoginParams;
 import com.italycalibur.mall.tiny.jpa.core.modules.ums.dto.UmsAdminRegisterParams;
+import com.italycalibur.mall.tiny.jpa.core.modules.ums.dto.UmsAdminUpdatePasswordParams;
+import com.italycalibur.mall.tiny.jpa.core.modules.ums.service.UmsAdminCacheService;
 import com.italycalibur.mall.tiny.jpa.core.modules.ums.service.UmsAdminService;
+import com.italycalibur.mall.tiny.jpa.entity.modules.ums.model.UmsResource;
+import com.italycalibur.mall.tiny.jpa.entity.modules.ums.model.UmsRole;
 import jakarta.annotation.Resource;
 import com.italycalibur.mall.tiny.jpa.entity.modules.ums.model.UmsAdmin;
 import com.italycalibur.mall.tiny.jpa.entity.modules.ums.repository.UmsAdminRepository;
@@ -14,6 +18,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
+import java.util.List;
 
 /**
  * 后台用户服务实现层
@@ -25,6 +30,11 @@ public class UmsAdminServiceImpl extends BaseServiceImpl implements UmsAdminServ
 
     @Resource
     private UmsAdminRepository adminRepository;
+
+    @Override
+    public UmsAdmin getAdminByUsername(String username) {
+        return null;
+    }
 
     @Override
     public String login(UmsAdminLoginParams params) {
@@ -57,9 +67,49 @@ public class UmsAdminServiceImpl extends BaseServiceImpl implements UmsAdminServ
     }
 
     @Override
+    public String refreshToken(String oldToken) {
+        return null;
+    }
+
+    @Override
     public Page<UmsAdmin> list(String keyword, Pageable pageable) {
         return adminRepository.findAllByUsernameLikeOrNickNameLike
                 ("%"+keyword+"%", "%"+keyword+"%", pageable);
+    }
+
+    @Override
+    public boolean update(Long id, UmsAdmin admin) {
+        return false;
+    }
+
+    @Override
+    public boolean delete(Long id) {
+        return false;
+    }
+
+    @Override
+    public int updateRole(Long adminId, List<Long> roleIds) {
+        return 0;
+    }
+
+    @Override
+    public List<UmsRole> getRoleList(Long adminId) {
+        return null;
+    }
+
+    @Override
+    public List<UmsResource> getResourceList(Long adminId) {
+        return null;
+    }
+
+    @Override
+    public int updatePassword(UmsAdminUpdatePasswordParams params) {
+        return 0;
+    }
+
+    @Override
+    public UmsAdminCacheService getCacheService() {
+        return null;
     }
 
 }
