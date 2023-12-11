@@ -6,7 +6,9 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
 import lombok.Getter;
 import lombok.Setter;
-import com.italycalibur.mall.tiny.jpa.entity.domain.AbstractBaseEntity;
+import com.italycalibur.mall.tiny.jpa.entity.domain.BaseEntity;
+
+import java.util.Date;
 
 /**
  * 后台用户实体
@@ -18,55 +20,62 @@ import com.italycalibur.mall.tiny.jpa.entity.domain.AbstractBaseEntity;
 @Entity
 @Table(name = "ums_admin", schema = "public")
 @Schema(description = "后台用户表")
-public class UmsAdmin extends AbstractBaseEntity {
+public class UmsAdmin extends BaseEntity {
 
     /**
      * 用户名.
      */
     @Column(name = "username")
-    @Schema(name = "username", description = "用户名")
+    @Schema(description = "用户名")
     private String username;
 
     /**
      * 密码.
      */
     @Column(name = "password")
-    @Schema(name = "password", description = "密码")
+    @Schema(description = "密码")
     private String password;
 
     /**
      * 昵称.
      */
     @Column(name = "nick_name")
-    @Schema(name = "nickName", description = "昵称")
+    @Schema(description = "昵称")
     private String nickName;
 
     /**
      * 头像.
      */
     @Column(name = "icon")
-    @Schema(name = "icon", description = "头像")
+    @Schema(description = "头像")
     private String icon;
 
     /**
      * 邮箱.
      */
     @Column(name = "email")
-    @Schema(name = "email", description = "邮箱")
+    @Schema(description = "邮箱")
     private String email;
 
     /**
      * 账号启用状态：0->禁用；1->启用.
      */
     @Column(name = "status")
-    @Schema(name = "status", description = "账号启用状态：0->禁用；1->启用")
+    @Schema(description = "账号启用状态：0->禁用；1->启用")
     private Integer status;
 
     /**
      * 备注信息.
      */
     @Column(name = "remark")
-    @Schema(name = "remark", description = "备注信息")
+    @Schema(description = "备注信息")
     private String remark;
+
+    /**
+     * 最后登录时间.
+     */
+    @Column(name = "last_login_time")
+    @Schema(description = "最后登录时间")
+    private Date lastLoginTime;
 
 }
