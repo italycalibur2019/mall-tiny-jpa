@@ -8,6 +8,9 @@ spring:
     name: mall-tiny-jpa
   profiles:
     active: dev
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
   # jpa基本配置
   jpa:
     hibernate:
@@ -28,3 +31,16 @@ knife4j:
   enable: true
   setting:
     language: zh_cn
+
+# 安全路径白名单
+secure:
+  ignored:
+    urls:
+      - /
+      - /swagger-ui.html
+      - /swagger-resources/**
+      - /v3/api-docs/**
+      - /doc.html
+      - /actuator/**
+      - /admin/login
+      - /admin/register

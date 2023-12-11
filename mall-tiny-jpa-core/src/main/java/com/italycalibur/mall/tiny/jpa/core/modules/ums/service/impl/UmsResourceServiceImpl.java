@@ -2,8 +2,12 @@ package com.italycalibur.mall.tiny.jpa.core.modules.ums.service.impl;
 
 import com.italycalibur.mall.tiny.jpa.core.modules.ums.service.UmsResourceService;
 import com.italycalibur.mall.tiny.jpa.entity.modules.ums.model.UmsResource;
+import com.italycalibur.mall.tiny.jpa.entity.modules.ums.repository.UmsResourceRepository;
+import jakarta.annotation.Resource;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 /**
  * 后台资源管理Service实现类
@@ -11,6 +15,9 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class UmsResourceServiceImpl implements UmsResourceService {
+
+    @Resource
+    private UmsResourceRepository resourceRepository;
 
     @Override
     public boolean create(UmsResource umsResource) {
@@ -30,6 +37,11 @@ public class UmsResourceServiceImpl implements UmsResourceService {
     @Override
     public Page<UmsResource> list(Long categoryId, String nameKeyword, String urlKeyword, Integer pageSize, Integer pageNum) {
         return null;
+    }
+
+    @Override
+    public List<UmsResource> list() {
+        return resourceRepository.findAll();
     }
 
 }

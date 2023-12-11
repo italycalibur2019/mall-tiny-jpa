@@ -8,6 +8,7 @@ import com.italycalibur.mall.tiny.jpa.entity.modules.ums.model.UmsResource;
 import com.italycalibur.mall.tiny.jpa.entity.modules.ums.model.UmsRole;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
@@ -75,10 +76,10 @@ public interface UmsAdminService {
      */
     int updatePassword(UmsAdminUpdatePasswordParams params);
 
-//    /**
-//     * 获取用户信息
-//     */
-//    UserDetails loadUserByUsername(String username);
+    /**
+     * 获取用户信息
+     */
+    UserDetails loadUserByUsername(String username);
 
     /**
      * 获取缓存服务
