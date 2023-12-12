@@ -4,6 +4,13 @@ spring:
     url: jdbc:postgresql://localhost:5432/postgres
     username: postgres
     password: cargo123
+  data:
+    redis:
+      host: localhost
+      database: 0
+      port: 6379
+      password:
+      timeout: 3000ms
   # 开启devtools热部署（因为使用 JRebel插件会导致Knife4j部分注解无效）
   devtools:
     restart:

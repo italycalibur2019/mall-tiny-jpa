@@ -4,6 +4,13 @@ spring:
     url: jdbc:postgresql://db:5432/mall
     username: postgres
     password: 123456
+  data:
+    redis:
+      host: redis
+      database: 0
+      port: 6379
+      password:
+      timeout: 3000ms
 
 # 正式环境(Linux)日志路径和日志等级
 logging:

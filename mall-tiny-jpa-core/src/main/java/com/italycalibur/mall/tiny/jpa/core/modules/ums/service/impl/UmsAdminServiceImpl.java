@@ -8,17 +8,15 @@ import com.italycalibur.mall.tiny.jpa.core.modules.ums.dto.UmsAdminLoginParams;
 import com.italycalibur.mall.tiny.jpa.core.modules.ums.dto.UmsAdminRegisterParams;
 import com.italycalibur.mall.tiny.jpa.core.modules.ums.dto.UmsAdminUpdatePasswordParams;
 import com.italycalibur.mall.tiny.jpa.core.modules.ums.service.UmsAdminCacheService;
-import com.italycalibur.mall.tiny.jpa.core.modules.ums.service.UmsAdminRoleRelationService;
 import com.italycalibur.mall.tiny.jpa.core.modules.ums.service.UmsAdminService;
 import com.italycalibur.mall.tiny.jpa.entity.domain.AdminUserDetails;
 import com.italycalibur.mall.tiny.jpa.entity.modules.ums.model.*;
 import com.italycalibur.mall.tiny.jpa.entity.modules.ums.repository.UmsAdminLoginLogRepository;
-import com.italycalibur.mall.tiny.jpa.entity.modules.ums.repository.UmsResourceRepository;
-import com.italycalibur.mall.tiny.jpa.entity.modules.ums.repository.UmsRoleRepository;
+import com.italycalibur.mall.tiny.jpa.entity.modules.ums.repository.UmsAdminRepository;
+import com.italycalibur.mall.tiny.jpa.entity.modules.ums.repository.UmsAdminRoleRelationRepository;
 import com.italycalibur.mall.tiny.jpa.security.utils.JwtTokenUtil;
 import com.italycalibur.mall.tiny.jpa.security.utils.SpringUtil;
 import jakarta.annotation.Resource;
-import com.italycalibur.mall.tiny.jpa.entity.modules.ums.repository.UmsAdminRepository;
 import jakarta.servlet.http.HttpServletRequest;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -58,7 +56,7 @@ public class UmsAdminServiceImpl extends BaseServiceImpl implements UmsAdminServ
     @Resource
     private UmsAdminLoginLogRepository loginLogRepository;
     @Resource
-    private UmsAdminRoleRelationService adminRoleRelationService;
+    private UmsAdminRoleRelationRepository adminRoleRelationRepository;
 
     @Override
     public UmsAdmin getAdminByUsername(String username) {
@@ -133,9 +131,13 @@ public class UmsAdminServiceImpl extends BaseServiceImpl implements UmsAdminServ
      * 根据用户名修改登录时间
      */
     private void updateLoginTimeByUsername(String username) {
-        UmsAdmin record = new UmsAdmin();
-        record.setLastLoginTime(new Date());
-        adminRepository.save(record);
+        QUmsAdmin qUmsAdmin = QUmsAdmin.umsAdmin;
+        UmsAdmin admin = getQueryFactory()
+                .selectFrom(qUmsAdmin)
+                .where(qUmsAdmin.username.eq(username))
+                .fetchFirst();
+        admin.setLastLoginTime(new Date());
+        adminRepository.save(admin);
     }
 
     @Override
@@ -219,7 +221,7 @@ public class UmsAdminServiceImpl extends BaseServiceImpl implements UmsAdminServ
                 .selectFrom(qUmsAdminRoleRelation)
                 .where(qUmsAdminRoleRelation.adminId.eq(adminId))
                 .fetch();
-        adminRoleRelationService.remove(relations);
+        adminRoleRelationRepository.deleteAll(relations);
         // 建立新关系
         if (!CollectionUtils.isEmpty(roleIds)) {
             List<UmsAdminRoleRelation> list = new ArrayList<>();
@@ -229,7 +231,7 @@ public class UmsAdminServiceImpl extends BaseServiceImpl implements UmsAdminServ
                 roleRelation.setRoleId(roleId);
                 list.add(roleRelation);
             }
-            adminRoleRelationService.saveAll(list);
+            adminRoleRelationRepository.saveAll(list);
         }
         getCacheService().delResourceList(adminId);
         return count;

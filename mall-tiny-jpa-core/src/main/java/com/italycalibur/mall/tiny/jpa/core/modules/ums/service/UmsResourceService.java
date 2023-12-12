@@ -2,6 +2,7 @@ package com.italycalibur.mall.tiny.jpa.core.modules.ums.service;
 
 import com.italycalibur.mall.tiny.jpa.entity.modules.ums.model.UmsResource;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 
 import java.util.List;
 
@@ -29,7 +30,7 @@ public interface UmsResourceService {
     /**
      * 分页查询资源
      */
-    Page<UmsResource> list(Long categoryId, String nameKeyword, String urlKeyword, Integer pageSize, Integer pageNum);
+    Page<UmsResource> list(Long categoryId, String nameKeyword, String urlKeyword, Pageable pageable);
 
     /**
      * 查询资源

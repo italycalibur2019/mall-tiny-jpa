@@ -14,19 +14,4 @@ import java.util.List;
 @Service
 public class UmsAdminRoleRelationServiceImpl implements UmsAdminRoleRelationService {
 
-    @Override
-    public boolean remove(UmsAdminRoleRelation adminRoleRelation) {
-        return false;
-    }
-
-    @Override
-    public boolean remove(List<UmsAdminRoleRelation> relations) {
-        return false;
-    }
-
-    @Override
-    public void saveAll(List<UmsAdminRoleRelation> list) {
-
-    }
-
 }

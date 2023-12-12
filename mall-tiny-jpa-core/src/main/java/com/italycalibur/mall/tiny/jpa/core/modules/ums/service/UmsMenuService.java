@@ -4,6 +4,7 @@ package com.italycalibur.mall.tiny.jpa.core.modules.ums.service;
 import com.italycalibur.mall.tiny.jpa.core.modules.ums.dto.UmsMenuNode;
 import com.italycalibur.mall.tiny.jpa.entity.modules.ums.model.UmsMenu;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 
 import java.util.List;
 
@@ -27,7 +28,7 @@ public interface UmsMenuService {
     /**
      * 分页查询后台菜单
      */
-    Page<UmsMenu> list(Long parentId, Integer pageSize, Integer pageNum);
+    Page<UmsMenu> list(Long parentId, Pageable pageable);
 
     /**
      * 树形结构返回所有菜单列表

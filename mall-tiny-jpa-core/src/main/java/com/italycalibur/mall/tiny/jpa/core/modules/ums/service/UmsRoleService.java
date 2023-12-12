@@ -4,6 +4,7 @@ import com.italycalibur.mall.tiny.jpa.entity.modules.ums.model.UmsMenu;
 import com.italycalibur.mall.tiny.jpa.entity.modules.ums.model.UmsResource;
 import com.italycalibur.mall.tiny.jpa.entity.modules.ums.model.UmsRole;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
@@ -28,17 +29,17 @@ public interface UmsRoleService {
     /**
      * 分页获取角色列表
      */
-    Page<UmsRole> list(String keyword, Integer pageSize, Integer pageNum);
+    Page<UmsRole> list(String keyword, Pageable pageable);
 
     /**
      * 根据管理员ID获取对应菜单
      */
-    List<UmsMenu> getMenuList(Long adminId);
+    List<UmsMenu> getMenuListByAdminId(Long adminId);
 
     /**
      * 获取角色相关菜单
      */
-    List<UmsMenu> listMenu(Long roleId);
+    List<UmsMenu> getMenuListByRoleId(Long roleId);
 
     /**
      * 获取角色相关资源

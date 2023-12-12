@@ -44,3 +44,11 @@ secure:
       - /actuator/**
       - /admin/login
       - /admin/register
+
+redis:
+  database: mall
+  key:
+    admin: 'ums:admin'
+    resourceList: 'ums:resourceList'
+  expire:
+    common: 86400 # 24小时
