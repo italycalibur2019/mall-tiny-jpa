@@ -21,7 +21,7 @@ import java.io.Serializable;
 public class SnowflakeGenerator implements IdentifierGenerator {
 
     /**
-     * 终端ID
+     * 终端id
      */
     @Value("${snowflake.worker-id}")
     public static long WORKER_ID;

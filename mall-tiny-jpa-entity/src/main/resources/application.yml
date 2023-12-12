@@ -1,4 +1,0 @@
-# 雪花算法id生成器基本参数
-snowflake:
-  worker-id: 1
-  datacenter-id: 1
