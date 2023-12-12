@@ -248,9 +248,10 @@ public class UmsAdminServiceImpl extends BaseServiceImpl implements UmsAdminServ
         QUmsRole qUmsRole = QUmsRole.umsRole;
         QUmsAdminRoleRelation qUmsAdminRoleRelation = QUmsAdminRoleRelation.umsAdminRoleRelation;
         return getQueryFactory()
-                .selectFrom(qUmsRole)
-                .leftJoin(qUmsAdminRoleRelation).on(qUmsAdminRoleRelation.roleId.eq(qUmsRole.id))
-                .where(qUmsAdminRoleRelation.adminId.eq(adminId)).fetch();
+                .select(qUmsRole)
+                .from(qUmsAdminRoleRelation)
+                .leftJoin(qUmsRole).on(qUmsAdminRoleRelation.roleId.eq(qUmsRole.id))
+                .fetch();
     }
 
     @Override
@@ -263,14 +264,13 @@ public class UmsAdminServiceImpl extends BaseServiceImpl implements UmsAdminServ
         QUmsRole qUmsRole = QUmsRole.umsRole;
         QUmsRoleResourceRelation qUmsRoleResourceRelation = QUmsRoleResourceRelation.umsRoleResourceRelation;
         QUmsAdminRoleRelation qUmsAdminRoleRelation = QUmsAdminRoleRelation.umsAdminRoleRelation;
-        resourceList =  getQueryFactory()
-                .selectFrom(qUmsResource)
-                .leftJoin(qUmsRoleResourceRelation).on(qUmsRoleResourceRelation.resourceId.eq(qUmsResource.id))
-                .leftJoin(qUmsRole).on(qUmsRole.id.eq(qUmsRoleResourceRelation.roleId))
-                .leftJoin(qUmsAdminRoleRelation).on(qUmsAdminRoleRelation.roleId.eq(qUmsRole.id))
-                .where(qUmsAdminRoleRelation.adminId.eq(adminId)
-                        .and(qUmsResource.id.isNotNull()))
-                .groupBy(qUmsResource.id.isNotNull())
+        resourceList = getQueryFactory().select(qUmsResource)
+                .from(qUmsAdminRoleRelation)
+                .leftJoin(qUmsRole).on(qUmsAdminRoleRelation.roleId.eq(qUmsRole.id))
+                .leftJoin(qUmsRoleResourceRelation).on(qUmsRole.id.eq(qUmsRoleResourceRelation.roleId))
+                .leftJoin(qUmsResource).on(qUmsResource.id.eq(qUmsRoleResourceRelation.resourceId))
+                .where(qUmsAdminRoleRelation.adminId.eq(adminId).and(qUmsResource.id.isNotNull()))
+                .groupBy(qUmsResource.id)
                 .fetch();
         if (CollUtil.isNotEmpty(resourceList)) {
             getCacheService().setResourceList(adminId, resourceList);

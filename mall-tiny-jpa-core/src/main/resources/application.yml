@@ -30,6 +30,10 @@ knife4j:
   enable: true
   setting:
     language: zh_cn
+  basic:
+    username: admin
+    password: admin
+    enable: true
 
 # 安全路径白名单
 secure:
@@ -64,7 +68,8 @@ jwt:
   # JWT存储的请求头
   tokenHeader: Authorization
   # JWT加解密使用的密钥
-  secret: mall-admin-secret
+  # 新版jjwt为了加密安全性，使用HS512算法密钥长度必须在512位以上（64个英文符号）
+  secret: kgfkknongabzcenqwzxzqdyuoxylynuutbbkriejnfvywbxymqtbpjkpfuvsutgr
   # JWT的超期限时间(60*60*24*7 -> 一周)
   expiration: 604800
   # JWT负载中拿到开头
