@@ -1,17 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+
     <modelVersion>4.0.0</modelVersion>
+
     <parent>
         <groupId>com.italycalibur</groupId>
         <artifactId>mall-tiny-jpa</artifactId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
+
     <artifactId>mall-tiny-jpa-core</artifactId>
+
     <version>0.0.1-SNAPSHOT</version>
+
     <name>mall-tiny-jpa-core</name>
+
     <description>Demo project for Spring Boot</description>
+
     <packaging>jar</packaging>
+
     <dependencies>
         <!--项目通用依赖-->
         <dependency>
@@ -40,7 +48,12 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
                     <mainClass>com.italycalibur.mall.tiny.jpa.core.MallTinyJpaCoreApplication</mainClass>
-                    <layout>JAR</layout>
+                    <excludes>
+                        <exclude>
+                            <groupId>org.projectlombok</groupId>
+                            <artifactId>lombok</artifactId>
+                        </exclude>
+                    </excludes>
                 </configuration>
             </plugin>
         </plugins>
