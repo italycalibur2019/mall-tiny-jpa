@@ -21,6 +21,11 @@ import java.util.List;
 public interface UmsAdminService {
 
     /**
+     * 根据id获取后台管理员
+     */
+    UmsAdmin getAdminById(Long id);
+
+    /**
      * 根据用户名获取后台管理员
      */
     UmsAdmin getAdminByUsername(String username);

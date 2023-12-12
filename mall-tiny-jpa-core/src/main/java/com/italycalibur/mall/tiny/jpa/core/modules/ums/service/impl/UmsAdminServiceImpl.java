@@ -59,6 +59,12 @@ public class UmsAdminServiceImpl extends BaseServiceImpl implements UmsAdminServ
     private UmsAdminRoleRelationRepository adminRoleRelationRepository;
 
     @Override
+    public UmsAdmin getAdminById(Long id) {
+        Optional<UmsAdmin> adminOptional = adminRepository.findById(id);
+        return adminOptional.orElse(null);
+    }
+
+    @Override
     public UmsAdmin getAdminByUsername(String username) {
         UmsAdmin admin = getCacheService().getAdmin(username);
         if (admin != null) {

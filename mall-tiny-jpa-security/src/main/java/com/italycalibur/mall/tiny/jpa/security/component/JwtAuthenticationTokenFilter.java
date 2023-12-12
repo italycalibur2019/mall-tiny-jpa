@@ -31,9 +31,9 @@ public class JwtAuthenticationTokenFilter extends OncePerRequestFilter {
     @Autowired
     private JwtTokenUtil jwtTokenUtil;
     @Value("${jwt.tokenHeader}")
-    private static String tokenHeader;
+    private String tokenHeader;
     @Value("${jwt.tokenHead}")
-    private static String tokenHead;
+    private String tokenHead;
 
     @Override
     protected void doFilterInternal(HttpServletRequest request,
