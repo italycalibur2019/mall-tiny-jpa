@@ -26,11 +26,11 @@ public class JwtTokenUtil {
     private static final String CLAIM_KEY_USERNAME = "sub";
     private static final String CLAIM_KEY_CREATED = "created";
     @Value("${jwt.secret}")
-    private static String secret;
+    private String secret;
     @Value("${jwt.expiration}")
-    private static Long expiration;
+    private Long expiration;
     @Value("${jwt.tokenHead}")
-    private static String tokenHead;
+    private String tokenHead;
 
     /**
      * 根据负责生成JWT的token
