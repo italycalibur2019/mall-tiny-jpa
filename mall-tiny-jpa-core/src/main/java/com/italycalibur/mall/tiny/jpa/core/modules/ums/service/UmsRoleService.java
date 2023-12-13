@@ -58,4 +58,14 @@ public interface UmsRoleService {
     @Transactional
     int allocResource(Long roleId, List<Long> resourceIds);
 
+    /**
+     * 修改角色
+     */
+    boolean updateRoleById(UmsRole role);
+
+    /**
+     * 获取所有角色
+     */
+    List<UmsRole> listRole();
+
 }

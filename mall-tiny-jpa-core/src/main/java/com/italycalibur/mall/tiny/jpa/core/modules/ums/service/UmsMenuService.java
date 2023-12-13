@@ -40,4 +40,13 @@ public interface UmsMenuService {
      */
     boolean updateHidden(Long id, Integer hidden);
 
+    /**
+     * 根据id查询菜单
+     */
+    UmsMenu getMenuById(Long id);
+
+    /**
+     * 根据id删除菜单
+     */
+    boolean removeMenuById(Long id);
 }

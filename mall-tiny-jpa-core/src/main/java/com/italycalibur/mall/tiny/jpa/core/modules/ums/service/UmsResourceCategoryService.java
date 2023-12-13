@@ -21,4 +21,13 @@ public interface UmsResourceCategoryService {
      */
     boolean create(UmsResourceCategory umsResourceCategory);
 
+    /**
+     * 修改资源分类
+     */
+    boolean updateCategoryById(UmsResourceCategory umsResourceCategory);
+
+    /**
+     * 删除资源分类
+     */
+    boolean removeCategoryById(Long id);
 }

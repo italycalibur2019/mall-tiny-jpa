@@ -17,6 +17,7 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 
 /**
  * 后台角色管理服务实现层
@@ -159,6 +160,21 @@ public class UmsRoleServiceImpl extends BaseServiceImpl implements UmsRoleServic
         roleResourceRelationRepository.saveAll(relationList);
         adminCacheService.delResourceListByRole(roleId);
         return resourceIds.size();
+    }
+
+    @Override
+    public boolean updateRoleById(UmsRole role) {
+        Optional<UmsRole> roleOptional = roleRepository.findById(role.getId());
+        if (roleOptional.isEmpty()) {
+            return false;
+        }
+        roleRepository.save(role);
+        return true;
+    }
+
+    @Override
+    public List<UmsRole> listRole() {
+        return roleRepository.findAll();
     }
 
 }

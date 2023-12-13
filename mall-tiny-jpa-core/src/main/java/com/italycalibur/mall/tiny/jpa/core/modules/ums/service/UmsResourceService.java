@@ -37,4 +37,8 @@ public interface UmsResourceService {
      */
     List<UmsResource> list();
 
+    /**
+     * 获取资源
+     */
+    UmsResource getResourceById(Long id);
 }

@@ -21,8 +21,9 @@ import java.util.List;
 import java.util.Optional;
 
 /**
- * 后台资源管理Service实现类
- * Created by macro on 2020/2/2.
+ * 后台资源服务实现层
+ * @author italycalibur
+ * @since 2023/12/11
  */
 @Service
 public class UmsResourceServiceImpl extends BaseServiceImpl implements UmsResourceService {
@@ -90,6 +91,11 @@ public class UmsResourceServiceImpl extends BaseServiceImpl implements UmsResour
     @Override
     public List<UmsResource> list() {
         return resourceRepository.findAll();
+    }
+
+    @Override
+    public UmsResource getResourceById(Long id) {
+        return resourceRepository.findById(id).orElse(null);
     }
 
 }

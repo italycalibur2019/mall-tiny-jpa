@@ -111,4 +111,20 @@ public class UmsMenuServiceImpl extends BaseServiceImpl implements UmsMenuServic
         return true;
     }
 
+    @Override
+    public UmsMenu getMenuById(Long id) {
+        Optional<UmsMenu> menuOptional = menuRepository.findById(id);
+        return menuOptional.orElse(null);
+    }
+
+    @Override
+    public boolean removeMenuById(Long id) {
+        Optional<UmsMenu> menuOptional = menuRepository.findById(id);
+        if (menuOptional.isEmpty()) {
+            return false;
+        }
+        menuRepository.delete(menuOptional.get());
+        return true;
+    }
+
 }
