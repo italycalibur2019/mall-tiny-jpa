@@ -6,7 +6,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
 import lombok.Getter;
 import lombok.Setter;
-import com.italycalibur.mall.tiny.jpa.entity.domain.BaseEntity;
+import com.italycalibur.mall.tiny.jpa.entity.domain.BaseJpaEntity;
 
 import java.util.Date;
 
@@ -20,7 +20,7 @@ import java.util.Date;
 @Entity
 @Table(name = "ums_admin", schema = "public")
 @Schema(description = "后台用户表")
-public class UmsAdmin extends BaseEntity {
+public class UmsAdmin extends BaseJpaEntity {
 
     /**
      * 用户名.

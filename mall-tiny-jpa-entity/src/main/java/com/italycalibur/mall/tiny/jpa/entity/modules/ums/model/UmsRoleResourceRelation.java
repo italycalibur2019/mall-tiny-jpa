@@ -1,6 +1,6 @@
 package com.italycalibur.mall.tiny.jpa.entity.modules.ums.model;
 
-import com.italycalibur.mall.tiny.jpa.entity.domain.BaseEntity;
+import com.italycalibur.mall.tiny.jpa.entity.domain.BaseJpaEntity;
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -18,7 +18,7 @@ import lombok.Setter;
 @Entity
 @Table(name = "ums_role_resource_relation", schema = "public")
 @Schema(description="后台角色资源关系表")
-public class UmsRoleResourceRelation extends BaseEntity {
+public class UmsRoleResourceRelation extends BaseJpaEntity {
 
     /**
      * 角色ID.

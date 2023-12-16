@@ -23,7 +23,7 @@ import java.util.Date;
 @Getter
 @Setter
 @MappedSuperclass
-public abstract class BaseEntity implements Serializable {
+public abstract class BaseJpaEntity implements Serializable {
 
     @Serial
     private static final long serialVersionUID = 1L;

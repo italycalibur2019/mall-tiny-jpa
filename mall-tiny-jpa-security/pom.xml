@@ -30,6 +30,11 @@
 			<artifactId>mall-tiny-jpa-common</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
+		<dependency>
+			<groupId>com.italycalibur</groupId>
+			<artifactId>mall-tiny-jpa-entity</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
 	</dependencies>
 
 </project>

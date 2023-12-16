@@ -1,4 +1,4 @@
-package com.italycalibur.mall.tiny.jpa.entity.domain;
+package com.italycalibur.mall.tiny.jpa.security.domain;
 
 import com.italycalibur.mall.tiny.jpa.entity.modules.ums.model.UmsAdmin;
 import com.italycalibur.mall.tiny.jpa.entity.modules.ums.model.UmsResource;

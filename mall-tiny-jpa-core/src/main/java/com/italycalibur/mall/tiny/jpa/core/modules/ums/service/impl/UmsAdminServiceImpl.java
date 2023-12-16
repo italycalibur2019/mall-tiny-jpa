@@ -9,7 +9,7 @@ import com.italycalibur.mall.tiny.jpa.core.modules.ums.dto.UmsAdminRegisterParam
 import com.italycalibur.mall.tiny.jpa.core.modules.ums.dto.UmsAdminUpdatePasswordParams;
 import com.italycalibur.mall.tiny.jpa.core.modules.ums.service.UmsAdminCacheService;
 import com.italycalibur.mall.tiny.jpa.core.modules.ums.service.UmsAdminService;
-import com.italycalibur.mall.tiny.jpa.entity.domain.AdminUserDetails;
+import com.italycalibur.mall.tiny.jpa.security.domain.AdminUserDetails;
 import com.italycalibur.mall.tiny.jpa.entity.modules.ums.model.*;
 import com.italycalibur.mall.tiny.jpa.entity.modules.ums.repository.UmsAdminLoginLogRepository;
 import com.italycalibur.mall.tiny.jpa.entity.modules.ums.repository.UmsAdminRepository;

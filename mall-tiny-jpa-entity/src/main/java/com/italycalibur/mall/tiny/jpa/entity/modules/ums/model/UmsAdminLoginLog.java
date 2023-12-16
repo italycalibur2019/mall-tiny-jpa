@@ -1,6 +1,6 @@
 package com.italycalibur.mall.tiny.jpa.entity.modules.ums.model;
 
-import com.italycalibur.mall.tiny.jpa.entity.domain.BaseEntity;
+import com.italycalibur.mall.tiny.jpa.entity.domain.BaseJpaEntity;
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -18,7 +18,7 @@ import lombok.Setter;
 @Entity
 @Table(name = "ums_admin_login_log", schema = "public")
 @Schema(description = "登录日志表")
-public class UmsAdminLoginLog extends BaseEntity {
+public class UmsAdminLoginLog extends BaseJpaEntity {
 
     /**
      * 用户id.
