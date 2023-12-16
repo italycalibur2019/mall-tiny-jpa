@@ -2,6 +2,8 @@ package com.italycalibur.mall.tiny.jpa.entity.domain;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
+import org.springframework.data.querydsl.QuerydslPredicateExecutor;
+import org.springframework.data.repository.NoRepositoryBean;
 
 /**
  * 基本实体持久层
@@ -10,5 +12,8 @@ import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
  * @param <E> 实体
  * @param <ID> 主键
  */
-public interface BaseJpaRepository<E, ID> extends JpaRepository<E, ID>, JpaSpecificationExecutor<E> {
+@NoRepositoryBean
+public interface BaseJpaRepository<E, ID> extends JpaRepository<E, ID>,
+        JpaSpecificationExecutor<E>, QuerydslPredicateExecutor<E> {
+
 }
